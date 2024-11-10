@@ -1,13 +1,7 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from .base_page import BasePage
 from selenium.webdriver.common.by import By
 
-link = "http://selenium1py.pythonanywhere.com/"
-
-
-def test_guest_should_see_login_link(browser):
-    browser.get(link)
-    login_link = browser.find_element(By.CSS_SELECTOR, "#login_link")
-    login_link.click()
+class MainPage(BasePage): 
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
+        login_link.click()
